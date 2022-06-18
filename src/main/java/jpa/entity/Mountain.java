@@ -4,14 +4,18 @@ import jakarta.persistence.*;
 import lombok.NonNull;
 import lombok.ToString;
 
+import java.util.List;
+
 @NonNull
 @ToString(callSuper = true)
 @Entity
 public class Mountain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToOne
+
     private int id;
+    @OneToMany(mappedBy = "mountain")
+    private List<ClimbGroup> groups;
     @Column(unique = true,nullable = false)
     private String name;
     @Column(nullable = false)

@@ -8,7 +8,7 @@
     <persistence-unit name="exam4" transaction-type="RESOURCE_LOCAL">
         <class>jpa.entity.Climber</class>
         <class>jpa.entity.Mountain</class>
-        <class>jpa.entity.Group</class>
+        <class>jpa.entity.ClimbGroup</class>
 
         <properties>
 

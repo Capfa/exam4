@@ -7,7 +7,7 @@ import lombok.ToString;
 @NonNull
 @ToString(callSuper = true)
 @Entity
-public class Group {
+public class ClimbGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Group {
     private int count=3;
 
 
-    @OneToMany(mappedBy = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private Mountain mountain;
     @ManyToMany
     private Climber[] climbers = new Climber[count];

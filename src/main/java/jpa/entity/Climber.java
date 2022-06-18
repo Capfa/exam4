@@ -3,18 +3,23 @@ package jpa.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @NonNull
 @ToString(callSuper = true)
 @Entity
 public class Climber {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToMany
+
     private int id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private String adress;
+
+    @ManyToMany(mappedBy = "climbers")
+    private List<ClimbGroup> groups;
 
     public String getName(){
         return name;
